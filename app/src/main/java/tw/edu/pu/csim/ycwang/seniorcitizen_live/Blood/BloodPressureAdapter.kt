@@ -42,8 +42,8 @@ class BloodPressureAdapter(
     // 辅助方法：检查收缩压和舒张压的状态
     private fun checkBloodPressureStatus(systolic: Int, diastolic: Int): BloodPressureStatus {
         return when {
-            systolic < 90 && diastolic < 60 -> BloodPressureStatus("低血压", ContextCompat.getColor(context, R.color.black))
-            systolic > 130 && diastolic > 80 -> BloodPressureStatus("高血压", ContextCompat.getColor(context, R.color.purple_500))
+            systolic < 90 && diastolic < 60 -> BloodPressureStatus("血壓過低", ContextCompat.getColor(context, R.color.black))
+            systolic > 130 && diastolic > 80 -> BloodPressureStatus("血壓過高", ContextCompat.getColor(context, R.color.purple_500))
             else -> BloodPressureStatus("正常", ContextCompat.getColor(context, R.color.purple_200))
         }
     }
