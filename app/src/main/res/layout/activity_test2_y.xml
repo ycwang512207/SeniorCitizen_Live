@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.Test2Y"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txv24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="恭喜答對囉！"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/txv25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用快凝寶能讓水變濃稠，老人家可以順利的喝下去不嗆咳。"
+        android:padding="10dp"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btnYFinish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="結束" />
+</LinearLayout>

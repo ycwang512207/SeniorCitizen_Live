@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.Test1"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txvTest1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="拿拐杖出門又重又不美觀，所以拿雨傘來代替拐杖輔助行走，在外方便又美觀！"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btnTest1Y"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="是"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btnTest1N"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="否"
+        android:textSize="18sp"/>
+</LinearLayout>

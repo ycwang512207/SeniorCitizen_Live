@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.Test2N"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txv26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="好可惜！答錯了！"
+        android:gravity="center"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/txv27"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:text="使用吸管和直接喝液體食物對老人家都容易造成嗆咳，長期嗆咳會造成肺部發炎，嚴重點就需要插鼻胃管才能進食。" />
+
+    <Button
+        android:id="@+id/btnNFinish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="結束" />
+</LinearLayout>

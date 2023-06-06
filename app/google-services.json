@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320696995900",
+    "project_id": "seniorcitizen-live",
+    "storage_bucket": "seniorcitizen-live.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320696995900:android:3bcff154448286b6dd7339",
+        "android_client_info": {
+          "package_name": "tw.edu.pu.csim.ycwang.seniorcitizen_live"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMfQ2LbwWtukRtAsFI62LAEWhK2T6_1Gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

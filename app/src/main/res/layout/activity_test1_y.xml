@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.Test1Y"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txv19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="好可惜！答錯囉！"
+        android:gravity="center"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/txv20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在外拿雨傘雖然方便又美觀，但雨傘的支撐能力並沒有拐杖那麼好，一個不小心跌倒雨傘可能就歪掉變形了，反而沒有幫助到使用者。"
+        android:textSize="18sp"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/btnYNextTest2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下一題" />
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.TestFinish"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txvSum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="恭喜答對了"
+        android:gravity="center"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnTestBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回主頁"
+        android:textSize="18sp"/>
+</LinearLayout>

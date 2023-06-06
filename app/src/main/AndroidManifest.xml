@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SeniorCitizen_Live"
+        tools:targetApi="31">
+        <activity
+            android:name=".test.Test2N"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".test.Test2Y"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".test.TestFinish"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".test.Test2"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".test.Test1N"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".test.Test1Y"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".test.Test1"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Medicine.MedicineSetTime"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Blood.BloodPressureHistoy"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Communicate"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Medicine.MedicineTime"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Blood.BloodPressure"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".test.Test"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".knowledge.Knowledge"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeScreen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".Medicine.MedicationAlarmReceiver" />
+    </application>
+
+</manifest>

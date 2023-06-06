@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".SignUp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/txv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="註冊帳號"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txv5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="帳號："
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTextEmailUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="30"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/txv6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="密碼："
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTextPasswordUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="30"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/txv7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="再次輸入密碼："
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/editTextPasswordUpC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="30"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="註冊"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txv8"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="已有帳號？"
+            android:textSize="18sp"
+            android:gravity="right"/>
+
+        <TextView
+            android:id="@+id/txv9"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="登入帳號"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:clickable="true"/>
+    </LinearLayout>
+
+</LinearLayout>

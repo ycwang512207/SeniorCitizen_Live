@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.Test2"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txv23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="老人家吞嚥能力退化，喝水常常嗆到，應避免使用吸管及直接喝液體的食物，在液體的食物中加適量的快凝寶，讓液體的食物變濃稠，才不會造成嗆咳。" />
+
+    <Button
+        android:id="@+id/btnTest2Y"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="是"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btnTest2N"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="否"
+        android:textSize="18sp"/>
+</LinearLayout>
