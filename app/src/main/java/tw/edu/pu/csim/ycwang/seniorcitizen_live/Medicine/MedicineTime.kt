@@ -47,7 +47,7 @@ class MedicineTime : AppCompatActivity() {
         adapter = MedicationReminderAdapter(this, medicineReminderList, listOf())
         recyclerViewMedicine.adapter = adapter
 
-        // 从 Firestore 加载数据并排序
+        // 從 Firestore 加載數據并排序
         loadDataFromFirestore()
 
         medicationReminderServiceIntent = Intent(this, MedicationAlarmReceiver::class.java)
@@ -70,7 +70,7 @@ class MedicineTime : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        // 保存用户的闹钟开关状态到 SharedPreferences
+        // 保存用户的鬧鐘開關狀態到 SharedPreferences
         val sharedPreferences = getSharedPreferences("MedicationReminder", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         for (reminder in medicineReminderList) {
@@ -87,7 +87,7 @@ class MedicineTime : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // 在此执行返回操作，例如关闭当前 Activity
+                // 在此執行返回操作，例如關閉當前 Activity
                 val userUid = intent.getStringExtra("userUid")
                 val intent = Intent(this, HomeScreen::class.java)
                 intent.putExtra("userUid", userUid)
@@ -117,28 +117,28 @@ class MedicineTime : AppCompatActivity() {
             .orderBy("medicationTime")
             .addSnapshotListener { snapshot, exception ->
                 if (exception != null) {
-                    // 处理异常
+                    // 處理異常
                     return@addSnapshotListener
                 }
 
-                // 清空旧数据
+                // 清空舊數據
                 medicineReminderList.clear()
 
-                val snapshots = snapshot?.documents ?: listOf() // 获取快照的文档列表
+                val snapshots = snapshot?.documents ?: listOf() // 獲取快照的文檔列表
 
                 if (snapshot != null) {
                     for (document in snapshot.documents) {
                         val medicineReminder = document.toObject(MedicineReminder::class.java)
                         if (medicineReminder != null) {
-                            medicineReminderList.add(medicineReminder) // 将新数据添加到列表中
+                            medicineReminderList.add(medicineReminder) // 將新數據添加到列表中
                         }
                     }
                 }
 
-                // 更新适配器
+                // 更新適配器
                 adapter = MedicationReminderAdapter(this, medicineReminderList, snapshots)
                 recyclerViewMedicine.adapter = adapter
-                // 更新适配器
+                // 更新適配器
                 adapter.notifyDataSetChanged()
 
             }
@@ -149,25 +149,25 @@ class MedicineTime : AppCompatActivity() {
 
         val dataChanged = intent.getBooleanExtra("dataChanged", false)
         if (dataChanged) {
-            // 从 Firestore 重新加载数据并排序
+            // 從 Firestore 重新加載數據并排序
             loadDataFromFirestore()
         }
-        // 从 SharedPreferences 加载用户的闹钟开关状态
+        // 從 SharedPreferences 加載用戶的鬧鐘開關狀態
         val sharedPreferences = getSharedPreferences("MedicationReminder", Context.MODE_PRIVATE)
         for (reminder in medicineReminderList) {
             reminder.alarmEnabled = sharedPreferences.getBoolean(reminder.medicationTime, false)
         }
 
-        // 检查 adapter 是否已经被初始化，如果没有则进行初始化
+        // 檢查 adapter 是否已经被初始化，如果没有則進行初始化
         if (!::adapter.isInitialized) {
             adapter = MedicationReminderAdapter(this, medicineReminderList, listOf())
             recyclerViewMedicine.adapter = adapter
         }
 
-        // 更新适配器
+        // 更新適配器
         adapter.notifyDataSetChanged()
 
-        // 检查闹钟状态并更新后台服务的提醒列表
+        // 檢查鬧鐘狀態並更新後台服務的提醒列表
         checkAlarmStatusAndUpdateReminderList()
     }
 
@@ -176,17 +176,17 @@ class MedicineTime : AppCompatActivity() {
 
         for (reminder in medicineReminderList) {
             if (reminder.alarmEnabled) {
-                // 检查是否已经设置闹钟
+                // 檢查是否已经設置鬧鐘
                 val intent = Intent(this, MedicationAlarmReceiver::class.java)
                 val pendingIntent = PendingIntent.getBroadcast(
                     this,
                     reminder.hashCode(),
                     intent,
-                    PendingIntent.FLAG_NO_CREATE // 使用 FLAG_NO_CREATE 标志以检查是否已经存在相同的闹钟
+                    PendingIntent.FLAG_NO_CREATE // 使用 FLAG_NO_CREATE 標誌以檢查是否已經存在相同的鬧鐘
                 )
 
                 if (pendingIntent == null) {
-                    // 闹钟不存在，需要设置新的闹钟
+                    // 鬧鐘不存在，需要設置新的鬧鐘
                     val calendar = Calendar.getInstance()
                     val timeParts = reminder.medicationTime.split(":")
                     val hour = timeParts[0].toInt()
@@ -204,10 +204,10 @@ class MedicineTime : AppCompatActivity() {
                         PendingIntent.FLAG_UPDATE_CURRENT
                     )
 
-                    // 获取星期信息
+                    // 獲取星期信息
                     val dayOfWeek = getDayOfWeek(calendar)
 
-                    // 检查是否匹配星期信息
+                    // 檢查是否匹配星期信息
                     val medicationDayOfWeek = reminder.medicationDayOfWeek
                     if (medicationDayOfWeek == "每天") {
                         setAlarmEveryday(alarmManager, calendar, pendingIntent)
@@ -221,7 +221,7 @@ class MedicineTime : AppCompatActivity() {
                     }
                 }
             } else {
-                // 取消闹钟
+                // 取消鬧鐘
                 val intent = Intent(this, MedicationAlarmReceiver::class.java)
                 val pendingIntent = PendingIntent.getBroadcast(
                     this,
@@ -231,7 +231,7 @@ class MedicineTime : AppCompatActivity() {
                 )
 
                 if (pendingIntent != null) {
-                    // 闹钟存在，需要取消闹钟
+                    // 鬧鐘存在，需要取消鬧鐘
                     alarmManager.cancel(pendingIntent)
                     pendingIntent.cancel()
                 }
@@ -240,7 +240,7 @@ class MedicineTime : AppCompatActivity() {
     }
 
     private fun setAlarmEveryday(alarmManager: AlarmManager, calendar: Calendar, pendingIntent: PendingIntent) {
-        // 设置每天的闹钟
+        // 设置每天的鬧鐘
         alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,

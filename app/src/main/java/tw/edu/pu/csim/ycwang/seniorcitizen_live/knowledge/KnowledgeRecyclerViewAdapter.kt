@@ -39,7 +39,7 @@ class KnowledgeRecyclerViewAdapter(private val context: Context, private val ite
     }
 
     private fun openItemDetails(item: ItemModel) {
-        // 创建并显示另一个 CardView 的对话框，将标题传递给新的 CardView
+        // 創建並顯示另一個 CardView 的對話框，將標題傳递给新的 CardView
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.knowledge_item_text)
 

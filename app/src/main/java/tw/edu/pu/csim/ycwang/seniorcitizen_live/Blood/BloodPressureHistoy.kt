@@ -63,7 +63,7 @@ class BloodPressureHistoy : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // 在此执行返回操作，例如关闭当前 Activity
+                // 在此執行返回操作，例如關閉當前 Activity
                 val userUid = intent.getStringExtra("userUid")
                 val intent = Intent(this, BloodPressure::class.java)
                 intent.putExtra("userUid", userUid)

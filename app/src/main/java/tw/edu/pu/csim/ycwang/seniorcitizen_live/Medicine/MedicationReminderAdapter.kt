@@ -21,7 +21,7 @@ import java.util.*
 class MedicationReminderAdapter(
     private val context: Context,
     private val medicineReminderList: List<MedicineReminder>,
-    private val snapshots: List<DocumentSnapshot> // 添加快照列表参数
+    private val snapshots: List<DocumentSnapshot> // 添加快照列表參數
     ) :
     RecyclerView.Adapter<MedicationReminderAdapter.ViewHolder>(){
 
@@ -40,7 +40,7 @@ class MedicationReminderAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val medicineReminder = medicineReminderList[position]
-        val documentId = snapshots[position].id // 获取 Firestore 文档的 ID
+        val documentId = snapshots[position].id // 獲取 Firestore 文檔的 ID
 
         holder.txtMedicationPeriod.text = medicineReminder.medicationPeriod
         holder.txtMedicationTime.text = medicineReminder.medicationTime
@@ -50,14 +50,14 @@ class MedicationReminderAdapter(
         // 設置鬧鐘開關狀態變化的監聽器
         holder.switchAlarm.setOnCheckedChangeListener { _, isChecked ->
             medicineReminder.alarmEnabled = isChecked
-            updateSwitchStateInFirestore(documentId, isChecked) // 将更新的状态同步到 Firestore
+            updateSwitchStateInFirestore(documentId, isChecked) // 將更新的狀態同步到 Firestore
             checkAlarmStatusAndUpdateReminderList() // 檢查鬧鐘狀態並更新後台服務的提醒列表
         }
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, MedicineSetTime::class.java)
-            intent.putExtra("documentId", documentId) // 将文档 ID 传递给下一个活动
-            intent.putExtra("fromItemClick", true) // 设置来源为点击列表项
+            intent.putExtra("documentId", documentId) // 將文檔 ID 傳递给下一個活動
+            intent.putExtra("fromItemClick", true) // 設置来源為點擊列表項
             context.startActivity(intent)
         }
     }
@@ -70,12 +70,12 @@ class MedicationReminderAdapter(
         val db = FirebaseFirestore.getInstance()
         val documentRef = db.collection("MedicineTime").document(documentId)
 
-        documentRef.update("alarmEnabled", isChecked) // 更新文档的 isAlarmEnabled 字段
+        documentRef.update("alarmEnabled", isChecked) // 更新文檔的 isAlarmEnabled 字段
             .addOnSuccessListener {
-                // 更新成功后的操作，例如显示成功消息
+                // 更新成功後的操作
             }
             .addOnFailureListener { e ->
-                // 更新失败时的操作，例如显示错误消息
+                // 更新失敗時的操作
             }
     }
 
@@ -84,7 +84,7 @@ class MedicationReminderAdapter(
 
         for (reminder in medicineReminderList) {
             if (reminder.alarmEnabled) {
-                // 检查是否已经设置闹钟
+                // 檢查是否已經設置鬧鐘
                 val intent = Intent(context, MedicationAlarmReceiver::class.java)
                 val pendingIntent = PendingIntent.getBroadcast(
                     context,
@@ -94,7 +94,7 @@ class MedicationReminderAdapter(
                 )
 
                 if (pendingIntent == null) {
-                    // 闹钟不存在，需要设置新的闹钟
+                    // 鬧鐘不存在，需要設置新的鬧鐘
                     val calendar = Calendar.getInstance()
                     val timeParts = reminder.medicationTime.split(":")
                     val hour = timeParts[0].toInt()
@@ -120,17 +120,17 @@ class MedicationReminderAdapter(
                     )
                 }
             } else {
-                // 取消闹钟
+                // 取消鬧鐘
                 val intent = Intent(context, MedicationAlarmReceiver::class.java)
                 val pendingIntent = PendingIntent.getBroadcast(
                     context,
                     reminder.hashCode(),
                     intent,
-                    PendingIntent.FLAG_NO_CREATE // 使用 FLAG_NO_CREATE 标志以检查是否已经存在相同的闹钟
+                    PendingIntent.FLAG_NO_CREATE // 使用 FLAG_NO_CREATE 標誌以檢查是否已經存在相同的鬧鐘
                 )
 
                 if (pendingIntent != null) {
-                    // 闹钟存在，需要取消闹钟
+                    // 鬧鐘存在，需要取消鬧鐘
                     alarmManager.cancel(pendingIntent)
                     pendingIntent.cancel()
                 }

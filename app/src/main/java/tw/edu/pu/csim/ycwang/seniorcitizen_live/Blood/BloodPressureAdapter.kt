@@ -23,14 +23,14 @@ class BloodPressureAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val bloodPressure = bloodPressureList[position]
 
-        // 将血压数据绑定到视图元素
+        // 將血壓數據绑定到item上
         holder.txvDataDate.text = bloodPressure.date
         holder.txvDataTime.text = bloodPressure.time
         holder.txvSystolic.text = bloodPressure.systolic.toString()
         holder.txvDiastolic.text = bloodPressure.diastolic.toString()
         holder.txvHeartBeat.text = bloodPressure.heartBeat.toString()
 
-        // 根据收缩压和舒张压判断血压状态并设置相应的文本和颜色
+        // 根據收缩壓和舒张壓判断血壓狀態並設置相應的文字和顏色
         val bloodPressureStatus = checkBloodPressureStatus(
             bloodPressure.systolic,
             bloodPressure.diastolic
@@ -39,7 +39,7 @@ class BloodPressureAdapter(
         holder.txvPressureStatus.setTextColor(bloodPressureStatus.textColor)
     }
 
-    // 辅助方法：检查收缩压和舒张压的状态
+    // 輔助方法：檢查收缩壓和舒张壓的狀態
     private fun checkBloodPressureStatus(systolic: Int, diastolic: Int): BloodPressureStatus {
         return when {
             systolic < 90 && diastolic < 60 -> BloodPressureStatus("血壓過低", ContextCompat.getColor(context, R.color.black))
@@ -61,5 +61,5 @@ class BloodPressureAdapter(
         val txvPressureStatus: TextView = itemView.findViewById(R.id.txvPressureStatus)
     }
 }
-// 数据类：血压状态
+// 數據類：血壓狀態
 data class BloodPressureStatus(val text: String, val textColor: Int)

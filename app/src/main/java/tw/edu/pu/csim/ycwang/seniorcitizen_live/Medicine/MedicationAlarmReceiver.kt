@@ -13,7 +13,7 @@ class MedicationAlarmReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         Log.d("MedicationAlarmReceiver", "Received medication reminder broadcast")
-        // 接收到用药提醒的广播后，显示通知
+        // 接收到用藥提醒的廣播後，顯示通知
         showMedicationReminderNotification(context?.applicationContext, intent?.getStringExtra("medicationPeriod"))
     }
 
@@ -27,7 +27,7 @@ class MedicationAlarmReceiver : BroadcastReceiver() {
             .setSmallIcon(R.drawable.clock)
             .setAutoCancel(true)
 
-        // 设置通知优先级
+        // 設置通知優先级
         notificationBuilder.priority = NotificationCompat.PRIORITY_HIGH
 
         // 發送通知
